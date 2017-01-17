@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <Foo :msg2="msg2" />
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import Foo from './components/Foo';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      msg2: 'message passed by props',
+    };
+  },
   components: {
-    Hello,
+    Foo,
   },
 };
 </script>

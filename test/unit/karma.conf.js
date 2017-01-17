@@ -11,10 +11,6 @@ var webpack = require('webpack');
 var projectRoot = path.resolve(__dirname, '../../');
 
 var webpackConfig = merge(baseConfig, {
-  // use inline sourcemap for karma-sourcemap-loader
-  module: {
-    loaders: utils.styleLoaders()
-  },
   devtool: '#inline-source-map',
   vue: {
     loaders: {
