@@ -1,13 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="foo">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
     <button id="change-message" @click="changeMessage">Change message</button>
 	  <p>{{ msg2 }}</p>
+	  <bar />
   </div>
 </template>
 
 <script>
+import Bar from './Bar';
+
 export default {
   name: 'hello',
   data() {
@@ -20,6 +22,9 @@ export default {
     changeMessage() {
       this.msg = 'new message';
     },
+  },
+  components: {
+    Bar,
   },
 };
 </script>

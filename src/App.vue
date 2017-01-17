@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Foo :msg2="msg2" />
+    <foo :msg2="msg2" />
   </div>
 </template>
 

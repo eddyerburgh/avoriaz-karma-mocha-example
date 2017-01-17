@@ -1,4 +1,5 @@
 import Foo from 'src/components/Foo';
+import Bar from 'src/components/Bar';
 import { mount } from 'avoriaz';
 
 describe('Foo.vue', () => {
@@ -28,5 +29,11 @@ describe('Foo.vue', () => {
     const wrapper = mount(Foo, { propsData: { msg2 } });
     const text = wrapper.find('p')[0].text();
     expect(text).to.equal(msg2);
+  });
+
+  it('renders Bar', () => {
+    const wrapper = mount(Foo);
+    const bar = wrapper.find(Bar)[0];
+    expect(bar.is(Bar)).to.equal(true);
   });
 });
