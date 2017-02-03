@@ -24,6 +24,6 @@ describe('Bar.vue', () => {
   it('.child-ul has color style set to red', () => {
     const wrapper = mount(Bar);
     const childUl = wrapper.find('.child-ul')[0];
-    expect(childUl.style().color).to.equal('red');
+    expect(childUl.hasStyle('color', 'red')).to.equal(true);
   });
 });
