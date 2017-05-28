@@ -3,12 +3,12 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var path = require('path');
-var merge = require('webpack-merge');
-var baseConfig = require('../../build/webpack.base.conf');
-var utils = require('../../build/utils');
-var webpack = require('webpack');
-var projectRoot = path.resolve(__dirname, '../../');
+var path = require('path')
+var merge = require('webpack-merge')
+var baseConfig = require('../../build/webpack.base.conf')
+var utils = require('../../build/utils')
+var webpack = require('webpack')
+var projectRoot = path.resolve(__dirname, '../../')
 
 var webpackConfig = merge(baseConfig, {
   devtool: '#inline-source-map',
@@ -22,18 +22,18 @@ var webpackConfig = merge(baseConfig, {
       'process.env': require('../../config/test.env')
     })
   ]
-});
+})
 
 // no need for app entry during tests
-delete webpackConfig.entry;
+delete webpackConfig.entry
 
 // Use babel for test files too
 webpackConfig.module.loaders.some(function (loader, i) {
   if (/^babel(-loader)?$/.test(loader.loader)) {
-    loader.include.push(path.resolve(projectRoot, 'test/unit'));
-    return true;
+    loader.include.push(path.resolve(projectRoot, 'test/unit'))
+    return true
   }
-});
+})
 
 module.exports = function (config) {
   config.set({
@@ -50,14 +50,14 @@ module.exports = function (config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true,
+      noInfo: true
     },
     coverageReporter: {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' },
+        { type: 'text-summary' }
       ]
-    },
-  });
-};
+    }
+  })
+}
